@@ -6,7 +6,7 @@
 /*   By: ajazbuti <ajazbuti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/18 19:37:49 by ajazbuti          #+#    #+#             */
-/*   Updated: 2021/08/25 14:48:57 by ajazbuti         ###   ########.fr       */
+/*   Updated: 2021/08/31 20:46:14 by ajazbuti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,16 @@
 
 void	*ft_memset(void *b, int c, size_t len)
 {
-	size_t			i;
-	char			*b_char;
-	unsigned char	x;
+	char	*b_char;
+	size_t	i;
 
 	i = 0;
 	b_char = b;
-	x = (unsigned char)c;
 	if (b == NULL)
 		return (b);
 	while (i < len)
 	{
-		b_char[i] = x;
+		b_char[i] = (unsigned char)c;
 		i++;
 	}
 	return (b);
