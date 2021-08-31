@@ -1,30 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ajazbuti <ajazbuti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/27 18:26:12 by ajazbuti          #+#    #+#             */
-/*   Updated: 2021/08/31 19:30:29 by ajazbuti         ###   ########.fr       */
+/*   Created: 2021/08/30 12:28:22 by ajazbuti          #+#    #+#             */
+/*   Updated: 2021/08/30 12:59:04 by ajazbuti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+void	*ft_calloc(size_t count, size_t size)
 {
-	char	*d;
-	char	*s;
+	char	*p;
 
-	d = (char *)dst;
-	s = (char *)src;
-	if (d < s)
-		ft_memcpy(d, s, len);
-	else if (d > s)
-	{
-		while (len--)
-			*(d + len) = *(s + len);
-	}
-	return (d);
+	p = NULL;
+	p = malloc(count * size);
+	ft_bzero(p, count * size);
+	return ((void *)p);
 }

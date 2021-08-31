@@ -6,7 +6,7 @@
 /*   By: ajazbuti <ajazbuti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/21 19:44:11 by ajazbuti          #+#    #+#             */
-/*   Updated: 2021/08/27 15:11:42 by ajazbuti         ###   ########.fr       */
+/*   Updated: 2021/08/30 12:03:04 by ajazbuti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,14 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	char	x;
-
-	x = (char)c;
-	if (*s == '\0' && x == '\0')
+	if (*s == 0 && (char)c == 0)
 		return ((char *)s);
 	while (*s)
 	{
-		if (*s == x)
+		if (*s == (char)c)
 			return ((char *)s);
 		s++;
-		if (*s == '\0' && x == '\0')
+		if (*s == 0 && (char)c == 0)
 			return ((char *)s);
 	}
 	return (NULL);

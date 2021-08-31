@@ -6,7 +6,7 @@
 /*   By: ajazbuti <ajazbuti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/20 17:25:42 by ajazbuti          #+#    #+#             */
-/*   Updated: 2021/08/28 19:49:05 by ajazbuti         ###   ########.fr       */
+/*   Updated: 2021/08/31 18:43:09 by ajazbuti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,39 +14,13 @@
 
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
-	size_t	ld;
-	size_t	len;
-	
-	len = 0;
-	ld = dstsize;
-	while (*dst != 0 && ld != 1)
-	{
-		dst++;
-		ld--;
-		len++;
-	}
-	while (ld != 1 && *src != 0)
-	{
-		*dst++ = *src++;
-		ld--;
-		len++;
-	}
-	*dst = 0;
-	return (len);
+	size_t	i;
+
+	i = ft_strlen(dst);
+	if (i >= dstsize)
+		return (dstsize + ft_strlen(src));
+	while (i < dstsize - 1 && *src)
+		dst[i++] = *src++;
+	dst[i] = '\0';
+	return (i + ft_strlen(src));
 }
-
-
-
-
-//	if (dstsize == 0 || ft_strlen(dst) > dstsize)
-//		return (ret_val);
-//	i = ft_strlen(dst);
-//	while (i < dstsize -1 && *src)
-//	{
-//		dst[i] = *src;
-//		i++;
-//		src++;
-//	}
-//	dst[i] = '\0';
-//	return (ret_val);
-
