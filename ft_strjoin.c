@@ -1,25 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ajazbuti <ajazbuti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/30 13:08:06 by ajazbuti          #+#    #+#             */
-/*   Updated: 2021/09/01 13:01:06 by ajazbuti         ###   ########.fr       */
+/*   Created: 2021/09/01 13:57:48 by ajazbuti          #+#    #+#             */
+/*   Updated: 2021/09/01 14:21:14 by ajazbuti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *s1)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char	*dst;
-	size_t	l;
+	char	*s;
+	size_t	l1;
+	size_t	l2;
 
-	dst = NULL;
-	l = ft_strlen(s1);
-	dst = (char *)malloc(l + 1);
-	ft_strlcpy(dst, s1, l + 1);
-	return (dst);
+	s = NULL;
+	l1 = ft_strlen(s1);
+	l2 = ft_strlen(s2);
+	s = (char *)ft_calloc(l1 + l2 + 1, sizeof(char));
+	if (s)
+	{
+		ft_strlcpy(s, s1, l1 + 1);
+		ft_strlcat(s, s2, l1 + l2 + 1);
+	}
+	return (s);
 }
