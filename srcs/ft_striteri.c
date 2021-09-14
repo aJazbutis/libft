@@ -6,7 +6,7 @@
 /*   By: ajazbuti <ajazbuti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/04 20:27:18 by ajazbuti          #+#    #+#             */
-/*   Updated: 2021/09/07 18:19:08 by ajazbuti         ###   ########.fr       */
+/*   Updated: 2021/09/13 17:14:25 by ajazbuti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 	if (!s)
 		return ;
 	i = 0;
-	while(*s)
+	while (*s)
 	{
 		f(i, s);
 		s++;

@@ -6,12 +6,12 @@
 #    By: ajazbuti <ajazbuti@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/23 16:21:25 by ajazbuti          #+#    #+#              #
-#    Updated: 2021/09/08 21:22:38 by ajazbuti         ###   ########.fr        #
+#    Updated: 2021/09/13 18:02:07 by ajazbuti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
-SRC_F = ft_strlen.c ft_isalpha.c ft_isdigit.c ft_isprint.c ft_isalnum.c \
+SRC = ft_strlen.c ft_isalpha.c ft_isdigit.c ft_isprint.c ft_isalnum.c \
 	  ft_isascii.c ft_atoi.c ft_bzero.c ft_strchr.c ft_strrchr.c ft_strlcpy.c \
 	  ft_strlcat.c ft_strnstr.c ft_strncmp.c ft_tolower.c ft_toupper.c \
 	  ft_memcpy.c ft_memset.c ft_memchr.c ft_memcmp.c ft_memmove.c \
@@ -19,6 +19,9 @@ SRC_F = ft_strlen.c ft_isalpha.c ft_isdigit.c ft_isprint.c ft_isalnum.c \
 	  ft_strtrim.c ft_itoa.c ft_strmapi.c ft_striteri.c \
 	  ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c ft_split.c 
 
+BONUS_SRC = ft_lstnew.c ft_lstadd_front.c ft_lstadd_back.c ft_lstsize.c \
+		  ft_lstlast.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c \
+		  ft_lstmap.c
 
 CC = gcc
 
@@ -30,25 +33,30 @@ SRC_DIR = srcs/
 
 INC_DIR = includes/
 
-LIB = libft.h
+SRC_O = ${SRC:.c=.o}
 
-SRCS = $(addprefix ${SRC_DIR}, ${SRC_F})
+BONUS_O = ${BONUS_SRC:.c=.o}
 
-OBJS = ${SRC_F:.c=.o}
+#  %.o:%.c :\
+	${CC} ${FLAGS} -c -I{INC_DIR} ${SRC_O} ${BONUS_O}
 
 all: ${NAME}
 
-${OBJS}:
-	${CC} ${FLAGS} -c -I${INC_DIR} ${SRCS}
-	
-${NAME}: ${OBJS}
+${SRC_O}:
+	${CC} ${FLAGS} -c -I${INC_DIR} $(addprefix ${SRC_DIR}, ${SRC})
+
+${BONUS_O}:
+	${CC} ${FLAGS} -c -I${INC_DIR} $(addprefix ${SRC_DIR}, ${BONUS_SRC})
+
+
+${NAME}: ${SRC_O}
 	ar -r $@ $^
 
-bonus:
-
+bonus: ${NAME} ${BONUS_O}
+	ar -r ${NAME} ${BONUS_O}
 
 clean:
-	${RM} ${OBJS} 
+	${RM} ${SRC_O} 
 
 fclean: clean
 	${RM} $(NAME)

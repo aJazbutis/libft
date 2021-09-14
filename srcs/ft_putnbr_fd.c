@@ -6,7 +6,7 @@
 /*   By: ajazbuti <ajazbuti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/06 16:07:11 by ajazbuti          #+#    #+#             */
-/*   Updated: 2021/09/07 20:09:30 by ajazbuti         ###   ########.fr       */
+/*   Updated: 2021/09/13 17:28:36 by ajazbuti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,3 @@ void	ft_putnbr_fd(int n, int fd)
 		ft_putnbr(n, fd);
 	}
 }
-
-/*
-	s = NULL;
-	s = ft_itoa(n);
-	ft_putstr_fd(s, fd);
-	free(s);
-}
-*/

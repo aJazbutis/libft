@@ -6,7 +6,7 @@
 /*   By: ajazbuti <ajazbuti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/01 16:32:50 by ajazbuti          #+#    #+#             */
-/*   Updated: 2021/09/01 19:28:05 by ajazbuti         ###   ########.fr       */
+/*   Updated: 2021/09/13 17:29:56 by ajazbuti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ char	*ft_itoa(int n)
 	{
 		*s = '0';
 		return (s);
-	}	
+	}
 	ft_itos(s, n, len);
 	return (s);
 }

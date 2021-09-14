@@ -6,7 +6,7 @@
 /*   By: ajazbuti <ajazbuti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/24 18:34:58 by ajazbuti          #+#    #+#             */
-/*   Updated: 2021/08/27 14:38:19 by ajazbuti         ###   ########.fr       */
+/*   Updated: 2021/09/13 17:27:09 by ajazbuti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,26 @@
 
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	char	*here;
-	char	hay[420];
-	char	*p_hay;
+	size_t			i;
+	size_t			j;
+	unsigned char	*hay;
+	unsigned char	*needl;
 
 	if (*needle == '\0')
 		return ((char *)haystack);
-	here = NULL;
-	ft_strlcpy(hay, haystack, len + 1);
-	p_hay = &hay[0];
-	while (*p_hay)
+	i = 0;
+	hay = (unsigned char *)haystack;
+	needl = (unsigned char *)needle;
+	while (i < len && haystack[i])
 	{
-		if (ft_strncmp(p_hay, needle, ft_strlen(needle)) == 0)
+		j = 0;
+		while (i + j < len && hay[i] && (hay[i + j] == needl[j]))
 		{
-			here = (char *)haystack;
-			return (here);
+			j++;
+			if (needle[j] == '\0')
+				return ((char *)&(haystack[i]));
 		}
-		else
-		{
-			p_hay++;
-			haystack++;
-		}
+		i++;
 	}
-	return (here);
+	return (NULL);
 }

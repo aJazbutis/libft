@@ -6,7 +6,7 @@
 /*   By: ajazbuti <ajazbuti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/01 21:18:30 by ajazbuti          #+#    #+#             */
-/*   Updated: 2021/09/08 21:46:10 by ajazbuti         ###   ########.fr       */
+/*   Updated: 2021/09/13 17:31:09 by ajazbuti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ static char	**ft_set_all_free(char **split)
 		free(split[i]);
 		i++;
 	}
-	free (split);
+	free(split);
 	return (NULL);
 }
 
@@ -108,6 +108,6 @@ char	**ft_split(char const *s, char c)
 	while (i < len)
 		split[i++] = NULL;
 	ft_extract(split, str, c, len);
-	free (str);
+	free(str);
 	return (split);
 }

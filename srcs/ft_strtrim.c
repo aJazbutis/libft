@@ -6,7 +6,7 @@
 /*   By: ajazbuti <ajazbuti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/01 14:34:56 by ajazbuti          #+#    #+#             */
-/*   Updated: 2021/09/07 18:29:03 by ajazbuti         ###   ########.fr       */
+/*   Updated: 2021/09/13 17:34:46 by ajazbuti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	if (!s)
 		return (s);
 	while (ft_strchr(set, *s))
-	{	
+	{
 		ft_memmove(s, s + 1, ft_strlen(s));
 		if (*s == 0)
 			return (s);
