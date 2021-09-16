@@ -6,7 +6,7 @@
 /*   By: ajazbuti <ajazbuti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/06 15:46:37 by ajazbuti          #+#    #+#             */
-/*   Updated: 2021/09/07 18:03:56 by ajazbuti         ###   ########.fr       */
+/*   Updated: 2021/09/16 18:31:36 by ajazbuti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,5 @@ void	ft_putstr_fd(char *s, int fd)
 {
 	if (s == NULL)
 		return ;
-	while (*s != '\0')
-	{
-		ft_putchar_fd(*s, fd);
-		s++;
-	}
+	write(fd, s, ft_strlen(s));
 }

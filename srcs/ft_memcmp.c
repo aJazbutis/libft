@@ -6,7 +6,7 @@
 /*   By: ajazbuti <ajazbuti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/25 16:03:48 by ajazbuti          #+#    #+#             */
-/*   Updated: 2021/08/25 17:47:04 by ajazbuti         ###   ########.fr       */
+/*   Updated: 2021/09/16 17:56:34 by ajazbuti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	i = 0;
 	while (i < n)
 	{
-		if (str1[i] - str2[i] == 0)
+		if (str1[i] == str2[i])
 			i++;
 		else
 			return (str1[i] - str2[i]);

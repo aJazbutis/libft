@@ -6,7 +6,7 @@
 #    By: ajazbuti <ajazbuti@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/23 16:21:25 by ajazbuti          #+#    #+#              #
-#    Updated: 2021/09/13 18:02:07 by ajazbuti         ###   ########.fr        #
+#    Updated: 2021/09/14 19:38:41 by ajazbuti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,7 +56,7 @@ bonus: ${NAME} ${BONUS_O}
 	ar -r ${NAME} ${BONUS_O}
 
 clean:
-	${RM} ${SRC_O} 
+	${RM} ${SRC_O} ${BONUS_O}
 
 fclean: clean
 	${RM} $(NAME)

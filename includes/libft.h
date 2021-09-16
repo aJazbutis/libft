@@ -6,7 +6,7 @@
 /*   By: ajazbuti <ajazbuti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/17 16:44:04 by ajazbuti          #+#    #+#             */
-/*   Updated: 2021/09/13 18:09:16 by ajazbuti         ###   ########.fr       */
+/*   Updated: 2021/09/14 19:35:14 by ajazbuti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
-
 
 typedef struct	s_list
 {
