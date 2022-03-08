@@ -1,26 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ajazbuti <ajazbuti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/20 17:25:42 by ajazbuti          #+#    #+#             */
-/*   Updated: 2021/08/31 18:43:09 by ajazbuti         ###   ########.fr       */
+/*   Created: 2021/08/23 14:13:37 by ajazbuti          #+#    #+#             */
+/*   Updated: 2021/09/22 18:38:15 by ajazbuti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
+static char	*ft_str_end(char *s)
 {
-	size_t	i;
+	char	*str;
 
-	i = ft_strlen(dst);
-	if (i >= dstsize)
-		return (dstsize + ft_strlen(src));
-	while (i < dstsize - 1 && *src)
-		dst[i++] = *src++;
-	dst[i] = '\0';
-	return (i + ft_strlen(src));
+	while (*s)
+		s++;
+	str = s;
+	return (str);
+}
+
+char	*ft_strrchr(const char *s, int c)
+{
+	char	x;
+	char	*str;
+
+	x = (char)c;
+	str = (char *)s;
+	str = ft_str_end(str);
+	while (str >= s)
+	{
+		if (*str == x)
+			return (str);
+		str--;
+	}
+	return (NULL);
 }

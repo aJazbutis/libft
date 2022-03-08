@@ -1,48 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_atoll.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ajazbuti <ajazbuti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/06 16:07:11 by ajazbuti          #+#    #+#             */
-/*   Updated: 2021/09/13 17:28:36 by ajazbuti         ###   ########.fr       */
+/*   Created: 2021/11/20 22:49:14 by ajazbuti          #+#    #+#             */
+/*   Updated: 2021/11/22 00:57:47 by ajazbuti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_putnbr(int n, int fd)
+long long	ft_atoll(const char *str)
 {
-	int	m;
+	long long	i;
+	int			set_sign;
 
-	m = n % 10 + '0';
-	if (n == 0)
-		return (m);
-	else
+	i = 0;
+	set_sign = 1;
+	while (*str == 32 || (*str > 7 && *str < 15))
+		str++;
+	if (*str == '-' || *str == '+')
 	{
-		m = n % 10 + '0';
-		ft_putnbr(n / 10, fd);
-		write(fd, &m, 1);
+		if (*str == '-')
+			set_sign = -1;
+		str++;
 	}
-	return (0);
-}
-
-void	ft_putnbr_fd(int n, int fd)
-{
-	if (n == INT_MAX)
-		write(fd, "2147483647", 10);
-	else if (n == INT_MIN)
-		write(fd, "-2147483648", 11);
-	else if (n == 0)
-		write(fd, "0", 1);
-	else
+	while (*str >= '0' && *str <= '9')
 	{
-		if (n < 0)
-		{
-			write(fd, "-", 1);
-			n = n * (-1);
-		}
-		ft_putnbr(n, fd);
+		i = i * 10 + (*str - '0');
+		str++;
 	}
+	return (i * set_sign);
 }

@@ -1,27 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ajazbuti <ajazbuti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/25 15:18:14 by ajazbuti          #+#    #+#             */
-/*   Updated: 2021/08/30 12:01:45 by ajazbuti         ###   ########.fr       */
+/*   Created: 2021/08/21 19:44:11 by ajazbuti          #+#    #+#             */
+/*   Updated: 2022/01/27 19:59:01 by ajazbuti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+char	*ft_strchr(const char *s, int c)
 {
-	unsigned char	*str;
-
-	str = (unsigned char *)s;
-	while (n--)
+	if (s)
 	{
-		if (*str == (unsigned char)c)
-			return (str);
-		str++;
+		if (*s == 0 && (char)c == 0)
+			return ((char *)s);
+		while (*s)
+		{
+			if (*s == (char)c)
+				return ((char *)s);
+			s++;
+			if (*s == 0 && (char)c == 0)
+				return ((char *)s);
+		}
 	}
 	return (NULL);
 }

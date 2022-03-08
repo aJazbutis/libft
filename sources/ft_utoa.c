@@ -1,64 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_utoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ajazbuti <ajazbuti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/01 16:32:50 by ajazbuti          #+#    #+#             */
-/*   Updated: 2021/09/13 17:29:56 by ajazbuti         ###   ########.fr       */
+/*   Created: 2021/11/02 22:10:01 by ajazbuti          #+#    #+#             */
+/*   Updated: 2021/11/05 23:12:02 by ajazbuti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	ft_len(int n)
+static size_t	ft_len(unsigned int n)
 {
 	size_t	len;
-	size_t	sign;
-	long	nb;
 
 	if (n == 0)
 		return (2);
-	nb = (long)n;
 	len = 1;
-	if (nb < 0)
+	while (n != 0)
 	{
-		nb = nb * (-1);
-		sign = 1;
-	}
-	else
-		sign = 0;
-	while (nb != 0)
-	{
-		nb = nb / 10;
+		n = n / 10;
 		len++;
 	}
-	return (len + sign);
+	return (len);
 }
 
-static void	ft_itos(char *s, int n, size_t len)
+static void	ft_utos(char *s, unsigned int n, size_t len)
 {
-	long	nb;
-	size_t	sign;
-
-	nb = (long)n;
-	sign = 0;
-	if (nb < 0)
-	{
-		*s = '-';
-		nb = nb * (-1);
-		sign = 1;
-	}
 	len--;
-	while (len-- > sign)
+	while (len)
 	{
-		*(s + len) = nb % 10 + '0';
-		nb = nb / 10;
+		len--;
+		*(s + len) = n % 10 + '0';
+		n = n / 10;
 	}
 }
 
-char	*ft_itoa(int n)
+char	*ft_utoa(unsigned int n)
 {
 	size_t	len;
 	char	*s;
@@ -73,6 +53,6 @@ char	*ft_itoa(int n)
 		*s = '0';
 		return (s);
 	}
-	ft_itos(s, n, len);
+	ft_utos(s, n, len);
 	return (s);
 }

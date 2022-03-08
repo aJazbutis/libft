@@ -1,21 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ajazbuti <ajazbuti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/13 12:20:42 by ajazbuti          #+#    #+#             */
-/*   Updated: 2021/09/13 12:21:01 by ajazbuti         ###   ########.fr       */
+/*   Created: 2021/08/25 15:18:14 by ajazbuti          #+#    #+#             */
+/*   Updated: 2021/09/22 18:52:35 by ajazbuti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd_front(t_list **lst, t_list *new)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	if (!new)
-		return ;
-	new->next = *lst;
-	*lst = new;
+	unsigned char	*str;
+
+	str = (unsigned char *)s;
+	while (n)
+	{
+		if (*str == (unsigned char)c)
+			return (str);
+		str++;
+		n--;
+	}
+	return (NULL);
 }

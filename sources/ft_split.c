@@ -6,7 +6,7 @@
 /*   By: ajazbuti <ajazbuti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/01 21:18:30 by ajazbuti          #+#    #+#             */
-/*   Updated: 2021/09/13 17:31:09 by ajazbuti         ###   ########.fr       */
+/*   Updated: 2022/03/08 19:00:23 by ajazbuti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,11 +61,11 @@ static char	**ft_set_all_free(char **split)
 
 static void	ft_extract(char **split, char *str, char c, int len)
 {
-	int		i;
-	int		wlen;
+	int	i;
+	int	wlen;
 
 	i = 0;
-	while (--len)
+	while (i < len - 1)
 	{
 		wlen = ft_word_len(str, c);
 		split[i] = (char *)ft_calloc(wlen + 1, sizeof(char));
@@ -93,11 +93,14 @@ char	**ft_split(char const *s, char c)
 	char	*str;
 	int		i;
 	int		len;
+	char	set[2];
 
+	split = NULL;
 	if (s == NULL)
 		return (NULL);
-	split = NULL;
-	str = ft_strtrim(s, &c);
+	set[0] = c;
+	set[1] = '\0';
+	str = ft_strtrim(s, set);
 	if (!str)
 		return (split);
 	i = 0;

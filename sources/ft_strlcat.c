@@ -1,25 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstiter.c                                       :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ajazbuti <ajazbuti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/13 12:28:13 by ajazbuti          #+#    #+#             */
-/*   Updated: 2021/09/13 12:28:31 by ajazbuti         ###   ########.fr       */
+/*   Created: 2021/08/20 17:25:42 by ajazbuti          #+#    #+#             */
+/*   Updated: 2021/09/22 18:59:36 by ajazbuti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstiter(t_list *lst, void (*f)(void *))
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
-	if (lst)
+	size_t	i;
+
+	i = ft_strlen(dst);
+	if (i >= dstsize)
+		return (dstsize + ft_strlen(src));
+	while (i < dstsize - 1 && *src)
 	{
-		while (lst)
-		{
-			f(lst->content);
-			lst = lst->next;
-		}
+		dst[i] = *src;
+		i++;
+		src++;
 	}
+	dst[i] = '\0';
+	return (i + ft_strlen(src));
 }

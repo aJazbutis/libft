@@ -1,19 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   _bonus.h                                           :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ajazbuti <ajazbuti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/06 16:51:59 by ajazbuti          #+#    #+#             */
-/*   Updated: 2021/09/09 16:49:23 by ajazbuti         ###   ########.fr       */
+/*   Created: 2021/09/01 14:34:56 by ajazbuti          #+#    #+#             */
+/*   Updated: 2021/09/27 11:30:54 by ajazbuti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef _list_h_
-#define _list_h_
+#include "libft.h"
 
-t_list	*ft_lstnew(void *content);
-void	ft_lstadd_front(t_list **lst, t_list *new);
+char	*ft_strtrim(char const *s1, char const *set)
+{
+	char	*s;
+	char	*e;
+	int		start;
 
-#endif
+	if (!s1 || !set)
+		return (NULL);
+	s = (char *)s1;
+	start = 0;
+	while (ft_strchr(set, *s) && *s)
+	{
+		start++;
+		s++;
+	}
+	e = (char *)s1;
+	while (*e)
+		e++;
+	if (e == s)
+		return (ft_strdup(""));
+	--e;
+	while (ft_strchr(set, *(e)))
+		e--;
+	return (ft_substr(s1, start, (e - s + 1)));
+}
