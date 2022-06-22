@@ -6,7 +6,7 @@
 /*   By: ajazbuti <ajazbuti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 18:32:52 by ajazbuti          #+#    #+#             */
-/*   Updated: 2022/01/11 21:41:59 by ajazbuti         ###   ########.fr       */
+/*   Updated: 2022/05/30 00:01:55 by ajazbuti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ char	*gnl_strchr(char *s)
 	return (NULL);
 }
 
-size_t	ft_len(char *s)
+size_t	gnl_l(char *s)
 {
 	size_t	i;
 
@@ -48,7 +48,7 @@ char	*gnl_strdup(char *s)
 	sd = NULL;
 	if (s)
 	{
-		sd = (char *)malloc(ft_len(s) + 1);
+		sd = (char *)malloc(gnl_l(s) + 1);
 		if (!sd)
 			return (NULL);
 		i = -1;
@@ -75,7 +75,7 @@ char	*gnl_strjoin(char *s1, char *s2)
 	else
 	{
 		i = -1;
-		das_s = (char *)malloc(ft_len(s1) + ft_len(s2) + 1);
+		das_s = (char *)malloc(gnl_l(s1) + gnl_l(s2) + 1);
 		while (s1[++i])
 			das_s[i] = s1[i];
 		j = -1;

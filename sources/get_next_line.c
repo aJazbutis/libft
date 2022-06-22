@@ -6,7 +6,7 @@
 /*   By: ajazbuti <ajazbuti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/07 19:57:21 by ajazbuti          #+#    #+#             */
-/*   Updated: 2022/02/15 21:12:20 by ajazbuti         ###   ########.fr       */
+/*   Updated: 2022/05/30 00:01:04 by ajazbuti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ static char	*ft_get_line(char **bfd)
 	{
 		line = gnl_substr(*bfd, 0, gnl_strchr(*bfd) - *bfd + 1);
 		tmp = *bfd;
-		*bfd = gnl_substr(gnl_strchr(*bfd) + 1, 0, ft_len(*bfd) - ft_len(line));
-		if (ft_len(*bfd) == 0)
+		*bfd = gnl_substr(gnl_strchr(*bfd) + 1, 0, gnl_l(*bfd) - gnl_l(line));
+		if (gnl_l(*bfd) == 0)
 		{
 			free(*bfd);
 			*bfd = NULL;

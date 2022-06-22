@@ -6,13 +6,13 @@
 /*   By: ajazbuti <ajazbuti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/23 20:58:24 by ajazbuti          #+#    #+#             */
-/*   Updated: 2021/11/18 12:37:03 by ajazbuti         ###   ########.fr       */
+/*   Updated: 2022/06/20 16:00:30 by ajazbuti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_len(unsigned int n, int base)
+/*static int	ft_len(unsigned int n, int base)
 {
 	int	i;
 
@@ -52,6 +52,41 @@ static void	ft_result(char *result, unsigned int n, char *base_to, int len)
 		sign = 1;
 	}
 	while (len >= sign)
+	{
+		i = n % base;
+		result[len] = base_to[i];
+		n = n / base;
+		len--;
+	}
+}*/
+
+static int	ft_len(unsigned int n, int base)
+{
+	int	i;
+
+	if (n == 0)
+		return (2);
+	i = 1;
+	while (n)
+	{
+		n = n / base;
+		i++;
+	}
+	return (i);
+}
+
+static void	ft_result(char *result, unsigned int n, char *base_to, int len)
+{
+	int	base;
+	int	i;
+
+	base = ft_strlen(base_to);
+	if (n == 0)
+	{
+		result[0] = base_to[0];
+		return ;
+	}
+	while (len)
 	{
 		i = n % base;
 		result[len] = base_to[i];

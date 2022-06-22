@@ -6,7 +6,7 @@
 /*   By: ajazbuti <ajazbuti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/17 16:44:04 by ajazbuti          #+#    #+#             */
-/*   Updated: 2022/01/28 15:59:53 by ajazbuti         ###   ########.fr       */
+/*   Updated: 2022/06/13 18:39:15 by ajazbuti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdlib.h>
 # include <limits.h>
 # include <unistd.h>
+# include "get_next_line.h"
 
 typedef struct s_list
 {
@@ -83,6 +84,8 @@ int				ft_lst_isasc(t_list *lst);
 int				ft_lst_isdsc(t_list *lst);
 
 void			**ft_free_tab(char **tab);
+char			**ft_sort_tab(char **tab);
+//char			**ft_cp_tab(char **tab, int i);
 char			*ft_utoa(unsigned int n);
 char			*ft_utobase(unsigned int n, char *base_to);
 char			*ft_ultobase(unsigned long n, char *base_to);

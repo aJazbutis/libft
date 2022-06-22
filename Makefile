@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ajazbuti <ajazbuti@student.42.fr>          +#+  +:+       +#+         #
+#    By: kmorunov <kmorunov@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/23 16:21:25 by ajazbuti          #+#    #+#              #
-#    Updated: 2022/03/01 19:05:28 by ajazbuti         ###   ########.fr        #
+#    Updated: 2022/06/17 16:14:04 by kmorunov         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ SRC = ft_strlen.c ft_isalpha.c ft_isdigit.c ft_isprint.c ft_isalnum.c \
 	  ft_ultobase.c ft_add_prfx.c ft_atoll.c ft_free_tab.c ft_lstnew.c \
 	  ft_lstadd_front.c ft_lstadd_back.c ft_lstsize.c ft_lstlast.c \
 	  ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c ft_lst_issorted.c \
-	  get_next_line.c get_next_line_utils.c ft_extension_is_ok.c
+	  get_next_line.c get_next_line_utils.c ft_extension_is_ok.c ft_sort_tab.c\
 
 CC = gcc
 
